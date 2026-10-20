@@ -15,12 +15,12 @@
 // ============================================================
 
 export const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY",          // e.g. "AIzaSy..."
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "000000000000",
-  appId: "1:000000000000:web:xxxxxxxx"
+  apiKey: "AIzaSyC4hW40W6sw0KcasFvilNWFtKyUKL5I1pg",   // public web key (safe to commit)
+  authDomain: "itdep-b0fc9.firebaseapp.com",
+  projectId: "itdep-b0fc9",                             // your Firebase project "IT dep"
+  storageBucket: "itdep-b0fc9.firebasestorage.app",
+  messagingSenderId: "594484769140",
+  appId: "1:594484769140:web:8c9c4f46db76297d87bc21"
 };
 
 // Name shown at the top of the wall screen
