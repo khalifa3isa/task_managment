@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- viewport-fit=cover lets the bottom button respect the iPhone home bar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0f1e" />
+  <!-- Lets people "Add to Home Screen" and open it like an app -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <title>IT Tasks · Add</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="phone">
+    <!-- Header -->
+    <header class="top">
+      <div class="brand">
+        <div class="logo" id="logo"></div>
+        <div>
+          <h1 id="teamName">IT Department</h1>
+          <small>Task board</small>
+        </div>
+      </div>
+      <a class="icon-btn" href="board.html" id="boardLink"></a>
+    </header>
+
+    <!-- Demo / error notice (filled by JS) -->
+    <div class="banner" id="banner"></div>
+
+    <!-- Add-task form -->
+    <form class="card" id="form" autocomplete="off">
+      <label class="label" for="title">What needs doing?</label>
+      <input class="input" id="title" maxlength="120" placeholder="e.g. Printer on 2nd floor jammed" required />
+
+      <span class="label">Priority</span>
+      <div class="prio-grid" id="prioGrid"></div>
+
+      <span class="label">Category</span>
+      <div class="cat-grid" id="catGrid"></div>
+
+      <div class="row2">
+        <div>
+          <label class="label" for="assignee">Assigned to</label>
+          <div class="with-icon" id="assigneeWrap">
+            <input class="input" id="assignee" maxlength="40" placeholder="Name" list="peopleList" />
+          </div>
+          <datalist id="peopleList"></datalist>
+        </div>
+        <div>
+          <label class="label" for="location">Location</label>
+          <div class="with-icon" id="locationWrap">
+            <input class="input" id="location" maxlength="40" placeholder="Room / floor" />
+          </div>
+        </div>
+      </div>
+
+      <label class="label" for="notes">Notes <span style="text-transform:none;font-weight:500">(optional)</span></label>
+      <textarea class="input" id="notes" maxlength="300" rows="2" placeholder="Extra details…"></textarea>
+    </form>
+
+    <!-- Existing tasks -->
+    <div class="list-head">
+      <h2>Tasks</h2>
+      <div class="tabs" id="tabs">
+        <button class="tab on" data-f="open">Open<span class="n" id="nOpen"></span></button>
+        <button class="tab" data-f="done">Done<span class="n" id="nDone"></span></button>
+      </div>
+    </div>
+    <div id="list"></div>
+  </main>
+
+  <!-- Sticky add button -->
+  <div class="submit-bar">
+    <button class="submit" id="submit" form="form" type="submit"></button>
+  </div>
+
+  <!-- Toast message -->
+  <div class="toast" id="toast"></div>
+
+  <!-- PIN lock (only shown if TEAM_PIN is set in js/config.js) -->
+  <div class="lock" id="lock">
+    <form class="card" id="pinForm">
+      <h2 style="margin:0;font-family:var(--display)">Team PIN</h2>
+      <p style="color:var(--muted);margin:6px 0 0;font-size:14px">Enter the PIN to add tasks</p>
+      <input class="input" id="pin" type="password" inputmode="numeric" autocomplete="off" />
+      <button class="submit" type="submit">Unlock</button>
+    </form>
+  </div>
+
+  <script type="module" src="js/add.js"></script>
+</body>
+</html>

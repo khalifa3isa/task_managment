@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0f1e" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <title>IT Tasks · Wall Screen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="wall">
+    <!-- Top bar: name | live counters | clock -->
+    <header class="wall-head">
+      <div class="wall-brand">
+        <div class="logo" id="logo"></div>
+        <div>
+          <h1 id="teamName">IT Department</h1>
+          <div class="live" id="live"><i></i><span>Live</span></div>
+        </div>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="clock"><b id="time">--:--</b><small id="date"></small></div>
+    </header>
+
+    <div class="banner" id="banner"></div>
+
+    <!-- Three columns, filled by JS -->
+    <section class="cols">
+      <div class="col todo" style="--c: var(--accent)">
+        <div class="col-head" id="hTodo"></div>
+        <div class="col-body"><div class="col-track" id="cTodo"></div></div>
+      </div>
+      <div class="col progress" style="--c: var(--medium)">
+        <div class="col-head" id="hProgress"></div>
+        <div class="col-body"><div class="col-track" id="cProgress"></div></div>
+      </div>
+      <div class="col done" style="--c: var(--low)">
+        <div class="col-head" id="hDone"></div>
+        <div class="col-body"><div class="col-track" id="cDone"></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Full-screen button: appears when you move the mouse -->
+  <button class="icon-btn fs-btn" id="fsBtn"></button>
+
+  <script type="module" src="js/board.js"></script>
+</body>
+</html>

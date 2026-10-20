@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Only the "tasks" collection is usable; everything else is blocked.
+    match /tasks/{taskId} {
+      allow read: if true;
+      // Basic shape checks so junk can't be written
+      allow create, update: if request.resource.data.title is string
+                            && request.resource.data.title.size() > 0
+                            && request.resource.data.title.size() <= 120
+                            && request.resource.data.priority in ['critical','high','medium','low']
+                            && request.resource.data.status in ['todo','progress','done'];
+      allow delete: if true;
+    }
+  }
+}
